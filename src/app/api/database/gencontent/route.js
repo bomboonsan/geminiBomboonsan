@@ -65,8 +65,8 @@ export async function POST(request) {
             const text = response.text();
             console.log(text)
             const textArr = text.split("**เนื้อหาข่าว:**");
-            const artcieHead = textArr[0]?.replace("**หัวข้อข่าว:**","")?.replace(/(\r\n|\n|\r)/gm, "")?.replace('\n', "").trim();
-            const articleContent = textArr[1]?.replace("\n\n**เนื้อหาข่าว:**","")?.replace("**เนื้อหาข่าว:**\n\n","")?.replace("**เนื้อหาข่าว:**","");
+            const artcieHead = textArr[0]?.replace("**หัวข้อข่าว:**","")?.replace(/(\r\n|\n|\r)/gm, "")?.replace('\n', "")?.replace('"', "")?.replace('*', "").trim();
+            const articleContent = textArr[1]?.replace("\n\n**เนื้อหาข่าว:**","")?.replace("**เนื้อหาข่าว:**\n\n","")?.replace("**เนื้อหาข่าว:**","")?.replace('*', "");
             // ------------- GEMINIAI -------------
 
             // Insert
